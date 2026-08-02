@@ -4,7 +4,7 @@ output "instance_id" {
 }
 
 output "pubip" {
-  value = aws_instance.mjsinst[*}.public_ip
+  value = aws_instance.mjsinst[*].public_ip
 }
 
 output "instname" {
