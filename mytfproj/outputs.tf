@@ -1,12 +1,9 @@
-output "instance_id" {
-  value = aws_instance.mjsinst[*].id
-
-}
-
-output "pubip" {
-  value = aws_instance.mjsinst[*].public_ip
-}
-
-output "instname" {
-  value = aws_instance.mjsinst[*].tags["Name"]
+output "instances" {
+  value = [
+    for instance in aws_instance.mjsinst : {
+      id = aws_instance.mjsinst.id
+      name = aws_instance.mjsinst.tags["Name"]
+      pubip = aws_instance.mjsinst.public_ip
+    }
+  ]
 }
