@@ -1,0 +1,11 @@
+apiVersion: v2
+name: prome
+description: Custom Helm chart for Prometheus monitoring
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+dependencies:
+  - name: kube-prometheus-stack
+    version: "81.0.0"
+    repository: https://prometheus-community.github.io/helm-charts
