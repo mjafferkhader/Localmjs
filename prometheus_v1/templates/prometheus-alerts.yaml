@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-alerts
+data:
+  pod-restart-alerts.yml: |
+    groups:
+      - name: kubernetes-pod-alerts
+        rules:
+          - alert: KubernetesPodRestarted
+            expr: increase(kube_pod_container_status_restarts_total{namespace="default"}[5m]) > 0
+            for: 0m
+            labels:
+              severity: warning
+            annotations:
+              summary: "Pod container restarted"
+              description: "Container {{ $labels.container }} in pod {{ $labels.pod }} restarted in namespace {{ $labels.namespace }} during the last 5 minutes."
