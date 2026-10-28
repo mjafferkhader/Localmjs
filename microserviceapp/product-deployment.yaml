@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: product-api
-          image: product-api:v1
+          image: mjafferkhader/product-api:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
