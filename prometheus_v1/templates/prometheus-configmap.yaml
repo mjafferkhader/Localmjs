@@ -13,6 +13,7 @@ data:
           - targets:
               - localhost:9090
 
+
       - job_name: node-exporter
         kubernetes_sd_configs:
           - role: pod
@@ -29,3 +30,11 @@ data:
           - source_labels: [__meta_kubernetes_pod_container_port_name]
             action: keep
             regex: metrics
+
+
+      {{- if .Values.kubeStateMetrics.enabled }}
+      - job_name: kube-state-metrics
+        static_configs:
+          - targets:
+              - {{ .Values.kubeStateMetrics.service.name }}.{{ .Values.kubeStateMetrics.service.namespace }}.svc.cluster.local:{{ .Values.kubeStateMetrics.service.port }}
+      {{- end }}
