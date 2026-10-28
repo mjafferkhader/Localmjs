@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend-api
-          image: frontend-api:v1
+          image: mjafferkhader/frontend-api:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
