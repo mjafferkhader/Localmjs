@@ -10,3 +10,4 @@ spec:
     - name: web
       port: {{ .Values.prometheus.port }}
       targetPort: web
+      nodePort: {{ .Values.prometheus.service.nodePort }}
