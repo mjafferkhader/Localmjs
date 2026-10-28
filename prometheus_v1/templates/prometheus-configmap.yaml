@@ -36,5 +36,5 @@ data:
       - job_name: kube-state-metrics
         static_configs:
           - targets:
-              - {{ .Values.kubeStateMetrics.service.name }}.{{ .Values.kubeStateMetrics.service.namespace }}.svc.cluster.local:{{ .Values.kubeStateMetrics.service.port }}
+              - kube-state-metrics.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.kubeStateMetrics.port }}
       {{- end }}
