@@ -14,4 +14,4 @@ data:
               severity: warning
             annotations:
               summary: "Pod container restarted"
-              description: "Container {{ $labels.container }} in pod {{ $labels.pod }} restarted in namespace {{ $labels.namespace }} during the last 5 minutes."
+              description: "Container {{`{{ $labels.container }}`}} in pod {{`{{ $labels.pod }}`}} restarted in namespace {{`{{ $labels.namespace }}`}} during the last 5 minutes."
