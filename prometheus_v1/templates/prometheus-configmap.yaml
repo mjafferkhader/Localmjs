@@ -38,3 +38,7 @@ data:
           - targets:
               - kube-state-metrics.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.kubeStateMetrics.port }}
       {{- end }}
+
+      {{- with .Values.prometheus.scrapeConfigs }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
